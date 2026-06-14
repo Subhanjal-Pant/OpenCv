@@ -8,6 +8,8 @@ def imageThreshold():
     imgPath = os.path.join(pwd, 'tesla.png')
     img = cv.imread(imgPath)
     imgGray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+    # cv expects a list of images
+    # syntax is : cv.calcHist(imageList, channelList, mask, noOfBins, ranges)
     hist = cv.calcHist([imgGray], [0], None, [256], [0,256])
     plt.figure()
     plt.plot(hist)
